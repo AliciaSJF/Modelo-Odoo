@@ -1,0 +1,26 @@
+<odoo>
+
+    <record id="module_sge_scooters_category" model="ir.module.category"> 
+        <field name="name">Scooters Rent and Delivery</field>
+        <field name="description">Categoría que une los grupos de la empresa Scooters</field>
+    </record>
+
+    <record id="sge_scooters_group_sales" model="res.groups">
+        <field name="name">Vendedores</field>
+        <field name="category_id" ref="module_sge_scooters_category" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
+
+    <record id="sge_scooters_group_manager" model="res.groups">
+        <field name="name">Managers</field>
+        <field name="category_id" ref="module_sge_scooters_category" />
+        <field name="implied_ids" eval="[(4, ref('sge_scooters_group_sales'))]" />
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]" />
+    </record>
+
+    <record id="sge_scooters_group_client" model="res.groups">
+        <field name="name">Clientes</field>
+        <field name="category_id" ref="module_sge_scooters_category" />
+    </record>
+
+</odoo>

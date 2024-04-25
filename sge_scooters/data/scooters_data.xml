@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+
+        <record id="fabricante01" model="sge_scooters.fabricante">
+            <field name="marca">Peugeot</field>
+            <field name="desc">Fabricante de scooters y bicicletas eléctricas de todo tipo</field>
+            <field name="nbikes">7</field>
+            <field name="nscooters">9</field>
+            <field name="pais">CHI</field>
+        </record>
+
+        <record id="ebike01" model="sge_scooters.ebike">
+            <field name="name">eBike 01</field>
+            <field name="peso">5</field>
+            <field name="tipo">ca</field>
+            <field name="precio">8.50</field>
+            <field name="motor">False</field>
+            <field name="fabricante_id" ref="fabricante01" />
+        </record>
+
+        <record id="ebike02" model="sge_scooters.ebike">
+            <field name="name">eBike 02</field>
+            <field name="peso">12</field>
+            <field name="tipo">ci</field>
+            <field name="precio">10.50</field>
+            <field name="motor">True</field>
+        </record>
+
+        <record id="scoot01" model="sge_scooters.scooter">
+            <field name="name">Scoot 01</field>
+            <field name="foto" type="base64" file="/var/lib/odoo/modules/sge_scooters/static/images/patinete.png"/>
+            <field name="peso">8</field>
+            <field name="panel">False</field>
+            <field name="precio_hora">10.50</field>
+            <field name="potencia">media</field>
+            <field name="fabricante_id" ref="fabricante01" />
+        </record>
+
+        <record id="scoot02" model="sge_scooters.scooter">
+            <field name="name">Scoot 02</field>
+            <field name="peso">5</field>
+            <field name="panel">False</field>
+            <field name="precio_hora">7.50</field>
+            <field name="potencia">baja</field>
+        </record>
+
+        <record id="client01" model="sge_scooters.client">
+            <field name="codigo">CL01</field>
+            <!-- <field name="perfil" type="base64" file="${module_path}/static/images/bart_simpson.png"/> -->
+            <field name="dni">12345678A</field>
+            <field name="nombre">Karls</field>
+            <field name="apellidos">Lagerfeld</field>
+            <field name="scooter_id" ref="scoot01" />
+        </record>
+
+        <record id="client02" model="sge_scooters.client">
+            <field name="codigo">CL02</field>
+            <field name="dni">87654321B</field>
+            <field name="nombre">Tom</field>
+            <field name="apellidos">Yjerry</field>
+            <field name="bike_id" ref="ebike01" />
+        </record>
+
+</data>
+</odoo>

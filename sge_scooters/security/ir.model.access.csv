@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sge_scooters.access_scooter_sales,sge_scooters.scooter.sales,model_sge_scooters_scooter,sge_scooters_group_sales,1,1,0,0
+sge_scooters.access_ebike_sales,sge_scooters.ebike.sales,model_sge_scooters_ebike,sge_scooters_group_sales,1,1,0,0
+sge_scooters.access_fabricante_sales,sge_scooters.fabricante.sales,model_sge_scooters_fabricante,sge_scooters_group_sales,1,1,0,0
+sge_scooters.access_client_sales,sge_scooters.client.sales,model_sge_scooters_client,sge_scooters_group_sales,1,0,0,0
+
+sge_scooters.access_scooter_manager,sge_scooters.scooter.manager,model_sge_scooters_scooter,sge_scooters_group_manager,1,1,1,1
+sge_scooters.access_ebike_manager,sge_scooters.ebike.manager,model_sge_scooters_ebike,sge_scooters_group_manager,1,1,1,1
+sge_scooters.access_fabricante_manager,sge_scooters.fabricante.manager,model_sge_scooters_fabricante,sge_scooters_group_manager,1,1,1,1
+sge_scooters.access_client_manager,sge_scooters.client.manager,model_sge_scooters_client,sge_scooters_group_manager,1,1,1,1
