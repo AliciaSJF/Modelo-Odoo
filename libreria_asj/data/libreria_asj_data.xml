@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="libro01" model="libreria_asj.libro">
+        <field name="name">Libro 1</field>
+        <field name="isbn">ISBN 1</field>
+        <field name="precio">10.00</field>
+        <field name="anio_salida">2010</field>
+        <field name="genero">Fantasia</field>
+        <field name="edicion">1</field>
+    <!-- <field name="autor_id">autor01</field>
+        <field name="editoriales_ids">editorial01</field> -->  
+    </record>
+
+</odoo>

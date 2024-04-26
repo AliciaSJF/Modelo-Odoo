@@ -18,7 +18,43 @@
   </field>
 </record>     
 
+<record model="ir.ui.view" id="view_libro_form">
+    <field name="name">libro.form</field>
+    <field name="model">libreria_asj.libro</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="isbn"/>
+                    <field name="precio"/>
+                    <field name="descripcion"/>
+                </group>
+                <group>
+                    <field name="anio_salida"/>
+                    <field name="genero"/>
+                    <field name="edicion"/>
+                    <field name="autor_id"/>
+                    <field name="editoriales_ids"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+ </record>
 
+
+<!--ACCIONES-->
+
+<record model="ir.actions.act_window" id="libreria_asj.libro_action_window">
+    <field name="name">Libros</field>
+    <field name="res_model">libreria_asj.libro</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<!--MENU-->
+
+<menuitem id="libreria_asj_menu" name="Librería ASJ" sequence="1"/>
+<menuitem id="libreria_asj_libro_menu" name="Libros" parent="libreria_asj_menu" sequence="5" action="libreria_asj.libro_action_window"/>
 
   </data>
 </odoo>

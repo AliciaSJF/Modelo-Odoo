@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_libreria_asj_libreria_asj,libreria_asj.libreria_asj,model_libreria_asj_libreria_asj,base.group_user,1,1,1,1
+libreria_asj.access_libro_sales,libreria_asj.libro.sales,model_libreria_asj_libro,libreria_asj_group_sales,1,1,0,0
