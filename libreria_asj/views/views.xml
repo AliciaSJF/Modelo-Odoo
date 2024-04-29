@@ -150,6 +150,7 @@
             <field name="name" string="Nombre"/>
             <field name="apellidos" string="Apellidos"/>
             <field name="dni" string="DNI"/>
+            <field name="email" string="Email"/>
         </tree>
     </field>
 </record>
@@ -160,6 +161,7 @@
     <field name="arch" type="xml">
         <form string="Cliente">
             <sheet>
+                <field name="foto" widget='image' class='oe_avatar' />  
                 <div class="oe_title">
                     <label for="name" string="Nombre" class="oe_edit_only"/>
                     <h1>

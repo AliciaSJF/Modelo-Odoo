@@ -73,8 +73,10 @@ class cliente (models.Model):
     _description = 'libreria_asj.cliente'
 
     name = fields.Char(string='Nombre', required=True)
+    foto = fields.Binary('Fotografia')
     apellidos = fields.Char(string='Apellidos', required=True)
     dni = fields.Char(string='DNI', required=True)
+    email = fields.Char(string='Email', required=True)
     libros_ids = fields.One2many('libreria_asj.libro', 'cliente_ids',  string='Libros')
 
 class prestamo (models.Model):

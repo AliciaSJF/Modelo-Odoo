@@ -1,2 +1,12 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 libreria_asj.access_libro_sales,libreria_asj.libro.sales,model_libreria_asj_libro,libreria_asj_group_sales,1,1,0,0
+libreria_asj.access_autor_sales,libreria_asj.autor.sales,model_libreria_asj_autor,libreria_asj_group_sales,1,1,0,0
+libreria_asj.access_editorial_sales,libreria_asj.editorial.sales,model_libreria_asj_editorial,libreria_asj_group_sales,1,1,0,0
+libreria_asj.access_cliente_sales,libreria_asj.cliente.sales,model_libreria_asj_cliente,libreria_asj_group_sales,1,1,0,0
+libreria_asj.access_prestamo_sales,libreria_asj.prestamo.sales,model_libreria_asj_prestamo,libreria_asj_group_sales,1,1,0,
+libreria_asj.access_libro_manager,libreria_asj.libro.manager,model_libreria_asj_libro,libreria_asj_group_manager,1,1,1,1
+libreria_asj.access_autor_manager,libreria_asj.autor.manager,model_libreria_asj_autor,libreria_asj_group_manager,1,1,1,1
+libreria_asj.access_editorial_manager,libreria_asj.editorial.manager,model_libreria_asj_editorial,libreria_asj_group_manager,1,1,1,1
+libreria_asj.access_cliente_manager,libreria_asj.cliente.sales,model_libreria_asj_cliente,libreria_asj_group_manager,1,1,1,1
+libreria_asj.access_prestamo_manager,libreria_asj.prestamo.sales,model_libreria_asj_prestamo,libreria_asj_group_manager,1,1,1,1
+,,,,,,,

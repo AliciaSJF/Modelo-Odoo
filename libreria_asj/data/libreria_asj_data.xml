@@ -38,6 +38,7 @@
 
     <record id="libro01" model="libreria_asj.libro">
         <field name="name">Harry Potter y la piedra filosofal</field>
+        <field name="portada" type="base64" file="/var/lib/odoo/modules/libreria_asj/static/images/piedraFilosofal.jpg"/>
         <field name="isbn">9788478884452</field>
         <field name="precio">16.95</field>
         <field name="genero">juv</field>
@@ -50,6 +51,7 @@
 
     <record id="libro02" model="libreria_asj.libro">
         <field name="name">Harry Potter y la cámara secreta</field>
+        <field name="portada" type="base64" file="/var/lib/odoo/modules/libreria_asj/static/images/camaraSecreta.jpg"/>
         <field name="isbn">9788478884957</field>
         <field name="precio">17.95</field>
         <field name="anio_salida">1998-01-01</field>
@@ -61,6 +63,7 @@
 
     <record id="libro03" model="libreria_asj.libro">
         <field name="name">Harry Potter y el prisionero de Azkaban</field>
+        <field name="portada" type="base64" file="/var/lib/odoo/modules/libreria_asj/static/images/HarryPotterPrisionero.jpg"/>
         <field name="isbn">9788478885190</field>
         <field name="precio">17.95</field>
         <field name="anio_salida">1999-01-01</field>
@@ -84,7 +87,7 @@
 
     <record id="libro05" model="libreria_asj.libro">
         <field name="name">El señor de los Anillos</field>
-        <field name="portada" type="base64" file="/var/lib/odoo/modules/libreria_asj/static/images/portadaAlicia.jpg"/>
+        <field name="portada" type="base64" file="/var/lib/odoo/modules/libreria_asj/static/images/anillos.jpeg"/>
         <field name="isbn">9788445009598</field>
         <field name="precio">20.00</field>
         <field name="anio_salida">1954-01-01</field>
@@ -98,12 +101,17 @@
         <field name="name">Álvaro</field>
         <field name="apellidos">Diez</field>
         <field name="dni">12345678A</field>
+        <field name="email">alvaro@gmail.com</field>
+        <field name="foto" type="base64" file="/var/lib/odoo/modules/libreria_asj/static/images/alvaro.jpeg"/>
     </record>
 
     <record id="cliente02" model="libreria_asj.cliente">
         <field name="name">Alicia</field>
         <field name="apellidos">San Julián</field>
         <field name="dni">87654321B</field>
+        <field name="email">alicia@gmail.com</field>
+        <field name="foto" type="base64" file="/var/lib/odoo/modules/libreria_asj/static/images/alicia.jpg"/>
+
     </record>
 
     <record id="prestamo01" model="libreria_asj.prestamo">
