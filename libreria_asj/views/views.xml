@@ -197,20 +197,17 @@
                         <field name="apellidos" string="Apellidos"/>
                         <field name="dni" string="DNI"/>
                     </group>
-                    <group string="Libros Relacionados">
-                        <field name="libros_ids" context="{'default_cliente_id': active_id}" widget="one2many" options="{'editable': 'bottom'}">
-                            <tree>
-                                <field name="name" string="Título"/>
-                                <field name="precio"/>
-                            </tree>
-                            <form>
-                                <group>
-                                    <field name="name"/>
-                                    <field name="precio"/>
-                                </group>
-                            </form>
-                        </field>
-                    </group>
+                    <notebook>
+                        <page string="Préstamos">
+                            <field name="prestamo_ids">
+                                <tree>
+                                    <field name="libro_id"/>
+                                    <field name="fecha_prestamo"/>
+                                    <field name="fecha_devolucion"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </group>
             </sheet>
         </form>

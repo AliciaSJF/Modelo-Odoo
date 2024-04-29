@@ -77,7 +77,9 @@ class cliente (models.Model):
     apellidos = fields.Char(string='Apellidos', required=True)
     dni = fields.Char(string='DNI', required=True)
     email = fields.Char(string='Email', required=True)
-    libros_ids = fields.One2many('libreria_asj.libro', 'cliente_ids',  string='Libros')
+    #libros_ids = fields.One2many('libreria_asj.libro', 'cliente_ids',  string='Libros')
+    prestamo_ids = fields.One2many('libreria_asj.prestamo', 'cliente_id', string='Préstamos')
+
 
 class prestamo (models.Model):
     _name = 'libreria_asj.prestamo'
