@@ -24,10 +24,11 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
         'security/libreria_asj_security.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'data/libreria_asj_data.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

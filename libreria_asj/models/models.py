@@ -27,6 +27,7 @@ class libro(models.Model):
 
     name = fields.Char(string='Titulo', required=True)
     isbn = fields.Integer(string='ISBN', required=True)
+    portada = fields.Binary('Fotografia')
     precio = fields.Float(string='Precio')
     descripcion = fields.Text()
     anio_salida = fields.Date()
@@ -46,6 +47,14 @@ class autor(models.Model):
     nacionalidad = fields.Char(string='Nacionalidad', required=True)
     libros_ids = fields.One2many('libreria_asj.libro', 'autor_id', string='Libros')
 #    clientes_ids = fields.Many2many('libreria_asj.cliente', string='Clientes')
+    # Campo calculado para contar los libros del autor
+    total_libros = fields.Integer(string='Total de Libros', compute='_calcular_total_libros', store=True, readonly=True)
+
+    @api.depends('libros_ids')
+    def _calcular_total_libros(self):
+        for autor in self:
+            autor.total_libros = len(autor.libros_ids)
+    
 
 class editorial(models.Model):
     _name = 'libreria_asj.editorial'

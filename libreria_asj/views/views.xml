@@ -1,6 +1,7 @@
 <odoo>
   <data>
- 
+
+<!--Vistas de libros-->
 <record model="ir.ui.view" id="libreria_asj.libro_view_list">
   <field name="name">libreria_asj.libro.view.list</field>
   <field name="model">libreria_asj.libro</field>
@@ -42,8 +43,212 @@
     </field>
  </record>
 
+<record id="view_libro_form" model="ir.ui.view">
+    <field name="name">libro.form</field>
+    <field name="model">libreria_asj.libro</field>
+    <field name="arch" type="xml">
+        <form string="Libro">
+            <sheet>
+                <group>
+                    <field name="portada" widget='image' class='oe_avatar' />
+                    <field name="name" string="Título"/>
+                    <field name="isbn"/>
+                    <field name="precio"/>
+                    <field name="descripcion"/>
+                </group>
+                <group>
+                    <field name="anio_salida"/>
+                    <field name="genero"/>
+                    <field name="edicion"/>
+                    <field name="autor_id"/>
+                    <!-- Este campo mostrará la etiqueta "Autor" en lugar de el ID del autor gracias a la propiedad string= -->
+                </group>
+                <notebook>
+                    <page string="Editoriales">
+                        <field name="editoriales_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="telefono"/>
+                                <field name="email"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="view_autor_form" model="ir.ui.view">
+    <field name="name">autor.form</field>
+    <field name="model">libreria_asj.autor</field>
+    <field name="arch" type="xml">
+        <form string="Autor">
+            <sheet>
+                <!-- Campos principales del autor en un grupo principal -->
+                <group string="Información Principal">
+                    <field name="name" string="Nombre"/>
+                    <field name="apellidos" string="Apellidos"/>
+                    <field name="nacionalidad" string="Nacionalidad"/>
+                    <field name="total_libros" string="Total de libros escritos"/>
+                </group>
+                <!-- Lista de libros escritos por el autor -->
+                <group string="Libros Escritos">
+                    <field name="libros_ids">
+                        <tree>
+                            <field name="name"/>
+                            <field name="isbn"/>
+                            <field name="precio"/>
+                            <field name="anio_salida"/>
+                            <field name="genero"/>
+                        </tree>
+                        <!-- La vista formulario dentro del campo libros_ids permite editar o añadir libros directamente desde la vista del autor -->
+                        <form>
+                            <group>
+                                <field name="name"/>
+                                <field name="isbn"/>
+                                <field name="precio"/>
+                                <field name="descripcion"/>
+                                <field name="anio_salida"/>
+                                <field name="genero"/>
+                                <field name="edicion"/>
+                                <field name="autor_id" invisible="1"/>
+                            </group>
+                        </form>
+                    </field>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!--EDITORIAL-->
+<record id="view_editorial_tree" model="ir.ui.view">
+    <field name="name">editorial.tree</field>
+    <field name="model">libreria_asj.editorial</field>
+    <field name="arch" type="xml">
+        <tree string="Editorial">
+            <field name="name"/>
+            <field name="telefono"/>
+            <field name="email"/>
+            <field name="direccion"/>
+            <field name="pais"/>
+            <field name="codigo_postal"/>
+        </tree>
+    </field>
+</record>
+
+<record id="view_editorial_form" model="ir.ui.view">
+    <field name="name">editorial.form</field>
+    <field name="model">libreria_asj.editorial</field>
+    <field name="arch" type="xml">
+        <form string="Editorial">
+            <sheet>
+                <group>
+                    <field name="name" string="Nombre"/>
+                    <field name="telefono" string="Teléfono"/>
+                    <field name="email" string="Email"/>
+                    <field name="direccion" string="Dirección"/>
+                    <field name="pais" string="País"/>
+                    <field name="codigo_postal" string="Código Postal"/>
+                </group>
+                <notebook>
+                    <page string="Libros Publicados">
+                        <!-- lista de libros asociados a esta editorial -->
+                        <field name="libros_ids" widget="many2many_tags"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!--CLIENTE-->
+
+<record id="view_cliente_tree" model="ir.ui.view">
+    <field name="name">cliente.tree</field>
+    <field name="model">libreria_asj.cliente</field>
+    <field name="arch" type="xml">
+        <tree string="Clientes">
+            <field name="name" string="Nombre"/>
+            <field name="apellidos" string="Apellidos"/>
+            <field name="dni" string="DNI"/>
+        </tree>
+    </field>
+</record>
+
+<record id="view_cliente_form" model="ir.ui.view">
+    <field name="name">cliente.form</field>
+    <field name="model">libreria_asj.cliente</field>
+    <field name="arch" type="xml">
+        <form string="Cliente">
+            <sheet>
+                <div class="oe_title">
+                    <label for="name" string="Nombre" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group string="Información Personal">
+                        <field name="apellidos" string="Apellidos"/>
+                        <field name="dni" string="DNI"/>
+                    </group>
+                    <group string="Libros Relacionados">
+                        <field name="libros_ids" context="{'default_cliente_id': active_id}" widget="one2many" options="{'editable': 'bottom'}">
+                            <tree>
+                                <field name="name" string="Título"/>
+                                <field name="precio"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="precio"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="view_prestamo_tree" model="ir.ui.view">
+    <field name="name">prestamo.tree</field>
+    <field name="model">libreria_asj.prestamo</field>
+    <field name="arch" type="xml">
+        <tree string="Préstamos">
+            <field name="codigo"/>
+            <field name="fecha_prestamo"/>
+            <field name="fecha_devolucion"/>
+            <field name="cliente_id"/>
+            <field name="libro_id"/>
+        </tree>
+    </field>
+</record>
+
+<record id="view_prestamo_form" model="ir.ui.view">
+    <field name="name">prestamo.form</field>
+    <field name="model">libreria_asj.prestamo</field>
+    <field name="arch" type="xml">
+        <form string="Préstamo">
+            <sheet>
+                <group>
+                    <field name="codigo"/>
+                    <field name="fecha_prestamo"/>
+                    <field name="fecha_devolucion"/>
+                    <field name="cliente_id" options="{'no_create': True}"/>
+                    <field name="libro_id" options="{'no_create': True}"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
 
 <!--ACCIONES-->
+
+<!--Libros-->
 
 <record model="ir.actions.act_window" id="libreria_asj.libro_action_window">
     <field name="name">Libros</field>
@@ -51,10 +256,44 @@
     <field name="view_mode">tree,form</field>
 </record>
 
+<!--Autores-->
+
+<record id="autor_action" model="ir.actions.act_window">
+    <field name="name">Autores</field>
+    <field name="res_model">libreria_asj.autor</field>
+    <field name="view_mode">tree,form</field>
+</record>
+<!--Editoriales-->
+<record id="action_editorial" model="ir.actions.act_window">
+    <field name="name">Editoriales</field>
+    <field name="res_model">libreria_asj.editorial</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<!--Clientes-->
+<record id="action_cliente" model="ir.actions.act_window">
+    <field name="name">Clientes</field>
+    <field name="res_model">libreria_asj.cliente</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<!--Prestamos-->
+<record id="action_prestamo" model="ir.actions.act_window">
+    <field name="name">Préstamos</field>
+    <field name="res_model">libreria_asj.prestamo</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
 <!--MENU-->
 
 <menuitem id="libreria_asj_menu" name="Librería ASJ" sequence="1"/>
 <menuitem id="libreria_asj_libro_menu" name="Libros" parent="libreria_asj_menu" sequence="5" action="libreria_asj.libro_action_window"/>
+<menuitem id="libreria_autor_menu" name="Autores" action="autor_action" parent="libreria_asj_menu"/>
+<menuitem id="menu_editorial" name="Editoriales" parent="libreria_asj_menu" action="action_editorial"/>
+<menuitem id="libreria_asj_cliente_menu" name="Clientes" parent="libreria_asj_menu" action="action_cliente"/>
+<menuitem id="libreria_asj_prestamo_menu" name="Préstamos" parent="libreria_asj_menu" action="action_prestamo"/>
+
+
 
   </data>
 </odoo>

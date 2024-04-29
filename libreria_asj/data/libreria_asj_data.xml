@@ -3,10 +3,10 @@
 
     <record id="libro01" model="libreria_asj.libro">
         <field name="name">Libro 1</field>
-        <field name="isbn">ISBN 1</field>
+        <field name="isbn">1</field>
         <field name="precio">10.00</field>
-        <field name="anio_salida">2010</field>
-        <field name="genero">Fantasia</field>
+        <field name="anio_salida">2010-01-01</field>
+        <field name="genero">fic</field>
         <field name="edicion">1</field>
     <!-- <field name="autor_id">autor01</field>
         <field name="editoriales_ids">editorial01</field> -->  
