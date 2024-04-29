@@ -27,7 +27,7 @@ class libro(models.Model):
 
     name = fields.Char(string='Titulo', required=True)
     isbn = fields.Char(string='ISBN', required=True)
-    portada = fields.Binary('Fotografia')
+    portada = fields.Binary('Portada')
     precio = fields.Float('Precio', (5,2))
     descripcion = fields.Text()
     anio_salida = fields.Date()

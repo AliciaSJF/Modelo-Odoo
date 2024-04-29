@@ -7,10 +7,12 @@
         subtitle on modules listing or apps.openerp.com""",
 
     'description': """
-        Long description of module's purpose
+        Modulo para la gestión de una libreria 
     """,
 
-    'author': "My Company",
+    'icon': "libreria_asj/static/description/icon.png",
+
+    'author': "Alicia San Julian",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
