@@ -19,29 +19,6 @@
   </field>
 </record>     
 
-<record model="ir.ui.view" id="view_libro_form">
-    <field name="name">libro.form</field>
-    <field name="model">libreria_asj.libro</field>
-    <field name="arch" type="xml">
-        <form>
-            <sheet>
-                <group>
-                    <field name="name"/>
-                    <field name="isbn"/>
-                    <field name="precio"/>
-                    <field name="descripcion"/>
-                </group>
-                <group>
-                    <field name="anio_salida"/>
-                    <field name="genero"/>
-                    <field name="edicion"/>
-                    <field name="autor_id"/>
-                    <field name="editoriales_ids"/>
-                </group>
-            </sheet>
-        </form>
-    </field>
- </record>
 
 <record id="view_libro_form" model="ir.ui.view">
     <field name="name">libro.form</field>
