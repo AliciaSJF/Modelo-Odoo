@@ -26,12 +26,12 @@ class libro(models.Model):
     _description = 'libreria_asj.libro'
 
     name = fields.Char(string='Titulo', required=True)
-    isbn = fields.Integer(string='ISBN', required=True)
+    isbn = fields.Char(string='ISBN', required=True)
     portada = fields.Binary('Fotografia')
-    precio = fields.Float(string='Precio')
+    precio = fields.Float('Precio', (5,2))
     descripcion = fields.Text()
     anio_salida = fields.Date()
-    genero = fields.Selection(string='Genero', selection=[('pol','Policiaca'),('fic','Ficcion'),('nov','Novela'),('inf','Infantil')], default='fic')
+    genero = fields.Selection(string='Genero', selection=[('pol','Policiaca'),('fic','Ficcion'),('nov','Novela'),('inf','Infantil'),('rom','Romance'),('juv','Juvenil'),('fan','Fantasia')], default='fic')
     edicion = fields.Integer()
     autor_id = fields.Many2one('libreria_asj.autor', string = 'Autor')
     editoriales_ids = fields.Many2many('libreria_asj.editorial', string = 'Editorial')

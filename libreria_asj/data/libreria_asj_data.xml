@@ -1,15 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="libro01" model="libreria_asj.libro">
-        <field name="name">Libro 1</field>
-        <field name="isbn">1</field>
-        <field name="precio">10.00</field>
-        <field name="anio_salida">2010-01-01</field>
-        <field name="genero">fic</field>
-        <field name="edicion">1</field>
-    <!-- <field name="autor_id">autor01</field>
-        <field name="editoriales_ids">editorial01</field> -->  
+    <record id="autor01" model="libreria_asj.autor">
+        <field name="name">J. K. </field>
+        <field name="apellidos">Rowling</field>
+        <field name="nacionalidad">Reino Unido</field>
     </record>
+
+    <record id="autor02" model="libreria_asj.autor">
+        <field name="name">J. R. R. </field>
+        <field name="apellidos">Tolkien</field>
+        <field name="nacionalidad">Reino Unido</field>
+    </record>
+    
+    <record id="autor03" model="libreria_asj.autor">
+        <field name="name">Lewis</field>
+        <field name="apellidos">Carroll</field>
+        <field name="nacionalidad">Reino Unido</field>
+    </record>
+
+
+    <record id="editorial01" model="libreria_asj.editorial">
+        <field name="name">Edelvives</field>
+        <field name="telefono">913 34 48 84</field>
+        <field name="email">edelvives@gmail.com</field>
+        <field name="direccion">Calle Xaudaró, 25, Fuencarral-El Pardo, 28034 Madrid</field>
+    </record>
+
+
+    <record id="editorial02" model="libreria_asj.editorial">
+        <field name="name">Santillana</field>
+        <field name="telefono">913 34 48 84</field>
+        <field name="email">santillana@gmail.com</field>
+        <field name="direccion">Calle Xaudaró, 25, Fuencarral-El Pardo, 28034 Madrid</field>
+    </record>
+
+
+    <record id="libro01" model="libreria_asj.libro">
+        <field name="name">Harry Potter y la piedra filosofal</field>
+        <field name="isbn">9788478884452</field>
+        <field name="precio">16.95</field>
+        <field name="genero">juv</field>
+        <field name="edicion">1</field>
+        <field name="autor_id" ref="autor01"/>
+        <!-- Establece las editoriales asociadas a este libro, reemplazando cualquier relación existente con 'editorial01'
+         y 'editorial02'. (6, 0, [IDs]) limpia y establece nuevas relaciones Many2many. -->
+        <field name="editoriales_ids" eval="[(6, 0, [ref('editorial02')])]"/>
+    </record>
+
+    <record id="libro02" model="libreria_asj.libro">
+        <field name="name">Harry Potter y la cámara secreta</field>
+        <field name="isbn">9788478884957</field>
+        <field name="precio">17.95</field>
+        <field name="anio_salida">1998-01-01</field>
+        <field name="genero">juv</field>
+        <field name="edicion">15</field>
+        <field name="autor_id" ref="autor01"/>
+        <field name="editoriales_ids" eval="[(6, 0, [ref('editorial02')])]"/>
+    </record>
+
+    <record id="libro03" model="libreria_asj.libro">
+        <field name="name">Harry Potter y el prisionero de Azkaban</field>
+        <field name="isbn">9788478885190</field>
+        <field name="precio">17.95</field>
+        <field name="anio_salida">1999-01-01</field>
+        <field name="genero">juv</field>
+        <field name="edicion">2</field>
+        <field name="autor_id" ref="autor01"/>
+        <field name="editoriales_ids" eval="[(6, 0, [ref('editorial02')])]"/>
+    </record>
+
+    <record id="libro04" model="libreria_asj.libro">
+        <field name="name">Alicia en el pais de las maravillas</field>
+        <field name="portada" type="base64" file="/var/lib/odoo/modules/libreria_asj/static/images/portadaAlicia.jpg"/>
+        <field name="isbn">9788414002162</field>
+        <field name="precio">14.99</field>
+        <field name="anio_salida">1865-01-01</field>
+        <field name="genero">fan</field>
+        <field name="edicion">10</field>
+        <field name="autor_id" ref="autor03"/>
+        <field name="editoriales_ids" eval="[(6, 0, [ref('editorial01')])]"/>
+    </record>
+
+    <record id="libro05" model="libreria_asj.libro">
+        <field name="name">El señor de los Anillos</field>
+        <field name="portada" type="base64" file="/var/lib/odoo/modules/libreria_asj/static/images/portadaAlicia.jpg"/>
+        <field name="isbn">9788445009598</field>
+        <field name="precio">20.00</field>
+        <field name="anio_salida">1954-01-01</field>
+        <field name="genero">fan</field>
+        <field name="edicion">7</field>
+        <field name="autor_id" ref="autor02"/>
+        <field name="editoriales_ids" eval="[(6, 0, [ref('editorial01'), ref('editorial02')])]"/>
+    </record>
+
+    <record id="cliente01" model="libreria_asj.cliente">
+        <field name="name">Álvaro</field>
+        <field name="apellidos">Diez</field>
+        <field name="dni">12345678A</field>
+    </record>
+
+    <record id="cliente02" model="libreria_asj.cliente">
+        <field name="name">Alicia</field>
+        <field name="apellidos">San Julián</field>
+        <field name="dni">87654321B</field>
+    </record>
+
+    <record id="prestamo01" model="libreria_asj.prestamo">
+        <field name="codigo"> 1234S</field>
+        <field name="fecha_prestamo">2021-01-01</field>
+        <field name="fecha_devolucion">2021-01-11</field>
+        <field name="cliente_id" ref="cliente01"/>
+        <field name="libro_id" ref="libro01"/>
+    </record>
+
+
+
+
+    
+
 
 </odoo>
