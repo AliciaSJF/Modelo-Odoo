@@ -1,4 +1,3 @@
-
 <odoo>
     <record id="module_libreria_asj_category" model="ir.module.category">
         <field name="name">Librería ASJ</field>
