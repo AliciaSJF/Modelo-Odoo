@@ -27,7 +27,7 @@ class libro(models.Model):
 
     name = fields.Char(string='Titulo', required=True)
     isbn = fields.Char(string='ISBN', required=True)
-    portada = fields.Binary('Portada')
+    portada = fields.Image('Portada')
     precio = fields.Float('Precio', (5,2))
     descripcion = fields.Text()
     anio_salida = fields.Date()
@@ -46,8 +46,6 @@ class autor(models.Model):
     apellidos = fields.Char(string='Apellidos', required=True)
     nacionalidad = fields.Char(string='Nacionalidad', required=True)
     libros_ids = fields.One2many('libreria_asj.libro', 'autor_id', string='Libros')
-#    clientes_ids = fields.Many2many('libreria_asj.cliente', string='Clientes')
-    # Campo calculado para contar los libros del autor
     total_libros = fields.Integer(string='Total de Libros', compute='_calcular_total_libros', store=True, readonly=True)
 
     @api.depends('libros_ids')
@@ -76,7 +74,7 @@ class cliente (models.Model):
     foto = fields.Binary('Fotografia')
     apellidos = fields.Char(string='Apellidos', required=True)
     dni = fields.Char(string='DNI', required=True)
-    email = fields.Char(string='Email', required=True)
+    email = fields.Char(string='Email')
     #libros_ids = fields.One2many('libreria_asj.libro', 'cliente_ids',  string='Libros')
     prestamo_ids = fields.One2many('libreria_asj.prestamo', 'cliente_id', string='Préstamos')
 
